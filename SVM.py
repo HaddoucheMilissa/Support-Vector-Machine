@@ -20,7 +20,7 @@ print("Score of the 1st classifier(SVC) :",classifier1.score(x_test,y_test)) # S
 print("Score of the 2nd classifier(SVC) :",classifier2.score(x_test,y_test)) # Score of the 2nd classifier(SVC) : 0.9385964912280702
 
 #SVM as a class
-
+from SVM import SVM
 import numpy as np
 class SVM:
     def __init__(self,learning_rate=0.001,lambda_para=0.01,nb_iterations=1000):
@@ -39,6 +39,9 @@ class SVM:
         self.b=0
         for i in range(self.nb_iterations):
               for index, x_index in enumerate(x):
-                  cond= y [index]* (np.dot(x_index,self.w)-self.b)>=1
+                  cond= yy [index]* (np.dot(x_index,self.w)-self.b)>=1
                   if cond:
                         self.w -= self.lr (2*self.lambda_para *self.w )
+                  else:
+                      self.w -= self.lr*(2 * self.lambda_para *self.w - np.dot(x_index , yy[index])) 
+                      self.b -= self.lr * yy[index]
