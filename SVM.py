@@ -45,3 +45,8 @@ class SVM:
                   else:
                       self.w -= self.lr*(2 * self.lambda_para *self.w - np.dot(x_index , yy[index])) 
                       self.b -= self.lr * yy[index]
+                      
+                      
+    def predict(self, X):
+        app= np.dot(X, self.w) - self.b
+        return np.sign(app)
