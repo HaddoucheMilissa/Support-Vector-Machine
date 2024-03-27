@@ -14,7 +14,7 @@ print(classifier1.w,classifier1.b)
 
 def visualize_svm():
     def get_hyperplane_value(x,w,b,offset):
-            return (-w[0]*x + b + offset)/w[2]
+            return (-w[0]*x + b + offset)/w[1]
     fig=plt.figure()
     ax=fig.add_subplot(1, 1, 1)
-    plt.scatter(X[:,0], X[:,2], marker="o",c=y)
+    plt.scatter(x[:,0], x[:,1], marker="o",c=y)
